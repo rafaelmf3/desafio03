@@ -1,0 +1,21 @@
+version: '3'
+services:
+  redis:
+    image: redis
+    container_name: meetapp_redis
+    command: '--appendonly yes'
+    ports:
+      - 6379:6379
+  mongodb:
+    image: mongo
+    container_name: meetapp_mongo
+    ports:
+      - 27017:27017
+  postgres:
+    image: postgres
+    container_name: meetapp_postgres
+    environment:
+      POSTGRES_DB: postgres
+      POSTGRES_PASSWORD: docker
+    ports:
+      - 5433:5432
